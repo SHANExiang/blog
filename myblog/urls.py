@@ -23,5 +23,6 @@ urlpatterns = [
     path('login/', views.login),
     path('register/', views.register),
     path('logout/', views.register),
-    path('captcha/', include('captcha.urls'))
+    path('captcha/', include('captcha.urls')),
+    path('articles/', include('articles.urls'))
 ]
