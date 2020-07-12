@@ -8,8 +8,8 @@ class User(models.Model):
         ('male', "男"),
         ('female', "女"),
     )
-    user_name = models.CharField(max_length=12, unique=True, verbose_name='姓名')
-    password = models.CharField(max_length=56, verbose_name='密码')
+    user_name = models.CharField(max_length=128, unique=True, verbose_name='姓名')
+    password = models.CharField(max_length=156, verbose_name='密码')
     email = models.EmailField(unique=True)
     sex = models.CharField(max_length=32, choices=gender, default="男")
     create_time = models.DateTimeField(auto_now_add=True)
