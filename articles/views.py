@@ -5,6 +5,7 @@ from . import models
 
 def index(request):
     articles = models.Article.objects.all()
+    classifications = models.Classification.objects.all()
     return render(request, 'articles/index.html', locals())
 
 

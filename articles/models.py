@@ -3,9 +3,9 @@ from django.db import models
 # Create your models here.
 
 
-class Classfication(models.Model):
+class Classification(models.Model):
     aritcle_type = models.CharField(max_length=128, unique=True,
-                                    verbose_name='文章类型')
+                                    verbose_name='文章类型', default='其它')
     create_time = models.DateTimeField(
         auto_now_add=True, verbose_name='创建日期')
     update_time = models.DateTimeField(
@@ -27,13 +27,13 @@ class Article(models.Model):
                             verbose_name='文章内容')
     tags = models.ManyToManyField('Tag', blank=True, verbose_name='标签')
     classification = models.ForeignKey(
-        'Classfication', null=True, blank=True, on_delete=models.SET_NULL,
+        'Classification', null=True, blank=True, on_delete=models.SET_NULL,
         verbose_name='分类')
     comments = models.TextField(verbose_name='评论')
-    likes = models.IntegerField(verbose_name='点赞数')
-    notlikes = models.IntegerField(verbose_name='反对数')
-    reads = models.IntegerField(verbose_name='阅读量')
-    collections = models.IntegerField(verbose_name='收藏量')
+    likes = models.IntegerField(verbose_name='点赞数', default=0)
+    notlikes = models.IntegerField(verbose_name='反对数', default=0)
+    reads = models.IntegerField(verbose_name='阅读量', default=0)
+    collections = models.IntegerField(verbose_name='收藏量', default=0)
     create_time = models.DateTimeField(
         auto_now_add=True, verbose_name='创建日期')
     update_time = models.DateTimeField(
