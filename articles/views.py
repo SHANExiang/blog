@@ -10,7 +10,17 @@ def index(request):
 
 
 def dashboard(request):
-    pass
+    total = models.Article.objects.count()
+    classifications = models.Classification.objects.all()
+    classifications_list = list()
+    rates_list = list()
+    for classification in classifications:
+        classification_articles = models.Article.objects.filter(
+            classification=classification).count()
+        classifications_list.append(
+            {'%s' % classification: classification_articles})
+        classification_rate = round(classification_articles / total * 100)
+        rates_list.append({'%s' % classification: classification_rate})
     return render(request, 'articles/dashboard.html', locals())
 
 

@@ -23,6 +23,41 @@
 
 {% block content %}
 
+    <!-- Main content -->
+    <section class="content">
+
+      <!-- Default box -->
+      <div class="box">
+
+          <div class="box-header with-border">
+          <h3 class="box-title"><strong class="btn btn-block btn-primary btn-lg">文章：{{ article.title }}</strong></h3>
+
+          <div class="box-tools pull-right">
+            <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
+              <i class="fa fa-minus"></i></button>
+            <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove">
+              <i class="fa fa-times"></i></button>
+          </div>
+        </div>
+
+        <div class="box-body">
+
+            <br />
+          {{ article.text }}
+
+
+        </div>
+        <!-- /.box-body -->
+        <div class="box-footer">
+          <i class="fa fa-angle-double-left"></i>&nbsp;&nbsp;<a href="{% url 'articles:index' %}"><strong>返回文章列表页</strong></a>
+        </div>
+        <!-- /.box-footer-->
+      </div>
+      <!-- /.box -->
+
+    </section>
+    <!-- /.content -->
+
 {% endblock %}
 
 {% block script %}
