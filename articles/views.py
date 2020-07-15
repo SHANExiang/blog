@@ -27,3 +27,9 @@ def dashboard(request):
 def detail(request, article_id):
     article = get_object_or_404(models.Article, id=article_id)
     return render(request, 'articles/detail.html', locals())
+
+
+def edit(request, article_id):
+    article = get_object_or_404(models.Article, id=article_id)
+    return render(request, 'articles/edit.html', locals())
+

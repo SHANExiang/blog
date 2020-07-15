@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'articles',
     'login',
     'captcha',
+    'ckeditor',
+    'ckeditor_uploader',
 ]
 
 MIDDLEWARE = [
@@ -130,3 +132,11 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
+
+MEDIA_URL = '/media/'
+# 放在django项目根目录，同时也需要创建media文件夹
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+CKEDITOR_UPLOAD_PATH = 'upload/'
+
+CKEDITOR_IMAGE_BACKEND = 'pillow'

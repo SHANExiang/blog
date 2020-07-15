@@ -10,13 +10,13 @@
 <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        文章详细
+        文章编辑
         <small>article info</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> 主页</a></li>
         <li>文章总表</li>
-        <li class="active">文章详细</li>
+        <li class="active">文章编辑</li>
       </ol>
     </section>
 {% endblock %}
@@ -49,8 +49,8 @@
         </div>
         <!-- /.box-body -->
         <div class="box-footer">
-          <i class="fa fa-angle-double-right"></i>&nbsp;&nbsp;<a href="{% url 'articles:index' %}"><strong>返回文章列表页</strong></a>
-          <i class="fa fa-angle-double-left"></i>&nbsp;&nbsp;<a href="{% url 'articles:edit' article.id %}"><strong>编辑</strong></a>
+<!--          <i class="fa fa-angle-double-left"></i>&nbsp;&nbsp;<a href="{% url 'articles:detail' article.id %}"><strong>返回文章详情页</strong></a>-->
+          <i class="fa fa-angle-double-right"></i>&nbsp;&nbsp;<a href=""><strong>保存</strong></a>
         </div>
         <!-- /.box-footer-->
       </div>

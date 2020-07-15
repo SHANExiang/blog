@@ -24,5 +24,6 @@ urlpatterns = [
     path('register/', views.register),
     path('logout/', views.register),
     path('captcha/', include('captcha.urls')),
-    path('articles/', include('articles.urls'))
+    path('articles/', include('articles.urls')),
+    path('ckeditor/', include('ckeditor_uploader.urls')),
 ]
