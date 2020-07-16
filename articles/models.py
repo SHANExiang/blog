@@ -1,5 +1,5 @@
 from django.db import models
-
+from ckeditor_uploader.fields import RichTextUploadingField
 # Create your models here.
 
 
@@ -23,7 +23,7 @@ class Classification(models.Model):
 class Article(models.Model):
     '''所有文章列表'''
     title = models.CharField(max_length=64, unique=True, verbose_name='标题')
-    text = models.TextField(null=True, blank=True,
+    text = RichTextUploadingField(null=True, blank=True,
                             verbose_name='文章内容')
     tags = models.ManyToManyField('Tag', blank=True, verbose_name='标签')
     classification = models.ForeignKey(
