@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from . import models
 from . import forms
 # Create your views here.
@@ -31,8 +31,27 @@ def detail(request, article_id):
 
 
 def new(request):
-    new_article = forms.ArticleForm()
-    return render(request, 'articles/new.html', {'new_article': new_article})
+    # new_article = forms.ArticleForm()
+    if request.method == "POST":
+        new_article_form = forms.ArticleForm(request.POST)
+        message = '请检查填写的内容'
+        if new_article_form.is_valid():
+            title = new_article_form.cleaned_data.get('title')
+            text = new_article_form.cleaned_data.get('text')
+            print('title==%s, text=%s' % (title, text))
+            same_title = models.Article.objects.filter(title=title)
+            if same_title == title:
+                message = '标题已经存在'
+                return render(request, 'articles/new.html', locals())
+            new_article = models.Article()
+            new_article.title = title
+            new_article.text = text
+            new_article.save()
+            return redirect('/articles/index/')
+        # return redirect(request, 'articles/new.html', locals())
+        return redirect('/articles/index/')
+    new_article_form = forms.ArticleForm()
+    return render(request, 'articles/new.html', locals())
 
 
 def edit(request, article_id):

@@ -141,3 +141,29 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 CKEDITOR_UPLOAD_PATH = 'upload/'
 
 CKEDITOR_IMAGE_BACKEND = 'pillow'
+
+CKEDITOR_CONFIGS = {
+    'default': {
+        'skin': 'moono-lisa',
+        'language': 'zh-cn',
+    'toolbar_Basic': [
+            ['Source', '-', 'Bold', 'Italic']
+        ],
+    'toolbar_Full': [
+            [ 'Source','-','Save','NewPage','DocProps','Preview','Print','-','Templates' ],
+            [ 'Cut','Copy','Paste','PasteText','PasteFromWord','-','Undo','Redo' ],
+            [ 'Find','Replace','-','SelectAll','-','SpellChecker', 'Scayt' ],
+            [ 'Form', 'Checkbox', 'Radio', 'TextField', 'Textarea', 'Select', 'Button', 'ImageButton', 'HiddenField' ],            '/',        [ 'Bold','Italic','Underline','Strike','Subscript','Superscript','-','RemoveFormat' ],
+            [ 'NumberedList','BulletedList','-','Outdent','Indent','-','Blockquote','CreateDiv', '-','JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock','-','BidiLtr','BidiRtl' ],
+            [ 'Link','Unlink','Anchor' ],
+            [ 'Image','Flash','Table','HorizontalRule','Smiley','SpecialChar','PageBreak','Iframe' ],            '/',
+            [ 'Styles','Format','Font','FontSize' ] ,
+            [ 'TextColor','BGColor' ] ,
+            [ 'Maximize', 'ShowBlocks','-','About' ] ,
+            ['CodeSnippet'],  #插入程式code按鈕
+
+        ],
+    'toolbar': 'Full',
+    'extraPlugins': 'codesnippet',   #插入程式code
+    }
+}

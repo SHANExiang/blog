@@ -1,5 +1,6 @@
 from django import forms
-from ckeditor.fields import RichTextField
+from ckeditor_uploader.fields import RichTextUploadingField
+
 
 
 class ArticleForm(forms.Form):
@@ -7,4 +8,4 @@ class ArticleForm(forms.Form):
                             Textarea(attrs={'class': 'form-control',
                                             'placeholder': 'Title',
                                             'autofocus': ''}))
-    text = RichTextField()
+    text = RichTextUploadingField()
